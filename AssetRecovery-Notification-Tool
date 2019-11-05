@@ -27,15 +27,15 @@ def Main():
   for row4 in temp2:
     if row4 not in check:
       at_risk_scooters.append(row4)
-Main()
-if len(at_risk_scooters) == 0:
-  print('No At-Risk rideables detected. Let my maker know how Im doing!')
-else:
-  message = client.messages \
+  if len(at_risk_scooters) == 0:
+    print('No At-Risk rideables detected. Let my maker know how Im doing!')
+  else:
+    message = client.messages \
     .create(
-         body='At-Risk rideables:' + str(at_risk_scooters),
-         from_='+_',
-         media_url=['https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg'],
-         to='+_'
-     )
-  print(message.body)
+      body='At-Risk rideables:' + str(at_risk_scooters),
+      from_='+18329058740',
+      media_url=['https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg'],
+      to='+16282495919')
+    print(message.body)
+
+Main()
