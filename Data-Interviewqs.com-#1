@@ -1,1 +1,20 @@
+#check the wiki for visuals (problem #1)
+
+#Answer in SQL(Bigquery Engine):
+
+with aggregate as (
+select timestamp_trunc(date,day) as by_day
+      ,count(distinct case when status = 'fraud' then store_id end) as fraud_ct_per_day
+      ,count(distinct case when status = 'open' then store_id end) as active_store_ct_per_day
+from table
+where day >= timestamp_add(current_timestamp, interval -28 day)
+group by 1
+)
+select by_day
+,100.00*( fraud_ct_per_day / active_store_ct_per_day) as pct_fraud_per_day
+from aggregate
+order by 1 desc
+
+#Answer in Python(Pandas Library):
+
 
