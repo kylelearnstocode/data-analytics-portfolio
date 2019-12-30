@@ -15,6 +15,4 @@ select by_day
 from aggregate
 order by 1 desc
 
-#Answer in Python(Pandas Library):
-
 
