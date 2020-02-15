@@ -1,4 +1,4 @@
-#First python script; work project @Lyft designed to notify operations team via the Twilio API if an asset meets
+#Python Script @Lyft designed to notify operations team via the Twilio API if an asset meets
 # a certain number of theft conditions
 
 ! pip install twilio -t "/tmp" > /dev/null 2>&1
