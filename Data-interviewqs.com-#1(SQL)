@@ -1,6 +1,6 @@
-#check the wiki for visuals (problem #1)
+#check the wiki for visual description of problem #2
 
-#Answer in SQL(Bigquery Engine):
+#Answer in Google's BigQuery SQL syntax:
 
 with aggregate as (
 select timestamp_trunc(date,day) as by_day
