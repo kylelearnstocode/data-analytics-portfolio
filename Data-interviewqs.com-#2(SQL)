@@ -1,0 +1,15 @@
+#check the wiki for visual description of problem #2
+
+#Answer in Facebook's Presto SQL syntax(ANSI SQL Language):
+
+with sequence as (
+select avg(n) over(order by rnk asc rows between current row and 2 following) as moving_avg
+from (
+select n
+      ,row_number() over() as rnk
+from(
+select array[4, 4, 4, 9, 10, 11, 12] as J
+) as x(data)
+cross join unnest(data) as t(n) ))
+
+select min(moving_avg) as minn, max(moving_avg) as maxx from sequence
