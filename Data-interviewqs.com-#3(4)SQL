@@ -1,0 +1,10 @@
+#check the wiki for visual description of problem #3(4)
+
+#Answer in Facebook's Presto SQL syntax(ANSI SQL Language):
+
+with sender_data as (
+select sender_id, count(distinct receiver_id) as unique_receiver_ct
+from user_messaging
+where date = '2018-03-01'
+group by 1 )
+
