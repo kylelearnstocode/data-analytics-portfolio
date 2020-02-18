@@ -2,9 +2,14 @@
 
 #Answer in Facebook's Presto SQL syntax(ANSI SQL Language):
 
-with sender_data as (
-select sender_id, count(distinct receiver_id) as unique_receiver_ct
-from user_messaging
+select day
+      ,1.000 * count(case when unique_receiver_ct = 9 then sender_id end) / max(rnk) as percent_of_population
+from(
+select day 
+      ,sender_id
+      ,count(distinct receiver_id) as unique_receiver_ct
+      ,row_number() over() as rnk
+from user_messaging 
 where date = '2018-03-01'
-group by 1 )
-
+group by 2,1 )
+group by 1
