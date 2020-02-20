@@ -13,3 +13,16 @@ select array[4, 4, 4, 9, 10, 11, 12] as J
 cross join unnest(data) as t(n) ))
 
 select min(moving_avg) as minn, max(moving_avg) as maxx from sequence
+
+#Answer in Python using Pandas library!:
+
+import pandas as pd
+import nump as np
+
+J = [4, 4, 4, 9, 10, 11, 12]
+
+df = pd.Dataframe(J)
+df['rolling_avg_3'] = df.iloc[:,0].rolling(window = 3).mean()
+
+max_avg = df['rolling_avg_3'].max()
+min_avg = df['rolling_avg_3'].min()
