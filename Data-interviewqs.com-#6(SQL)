@@ -1,0 +1,15 @@
+#WIP as of 2/21/2020
+
+import numpy as np
+import math
+
+a = [128,4,2]
+
+def equate(x):
+    if all(num == x[0] for num in x):
+        return True
+    else:
+        if all(num % 7 == 0 or num % 2 == 0 for num in x):
+            return x
+equate(a)
+
