@@ -2,6 +2,7 @@
 
 #Answer in Google's Bigquery SQL syntax:
 
+-- joining table to form response data --
 with data as (
 select x.date
      ,x.sender_id
@@ -26,7 +27,7 @@ from table
 where date >= '2018-03-01') y
   on (x.sender_id = y.reciever_id and y.sender_id = x.receiver_id)
 )
-
+--parsing out responses under 5 minutes --
 select x.date
       ,distinct case when timestamp_diff(send_time,receive_time,seconds) < 300 then 'target' else 'non-target' end as sub_five_minute_response
 from data
